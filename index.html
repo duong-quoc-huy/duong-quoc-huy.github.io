@@ -202,6 +202,119 @@
 		</div>
 	</section>
 
+	<!-- My Experience Section -->
+	<section id="experience" class="py-5">
+		<div class="container">
+			<h2 class="text-center">My Experience</h2>
+			<p class="text-center">A brief overview of my professional journey</p>
+
+			<div class="timeline">
+				<div class="timeline-block">
+					<div class="timeline-icon">
+						<i class="fas fa-briefcase"></i>
+					</div>
+					<div class="timeline-content">
+						<h4>Front-End Developer Intern</h4>
+						<p>Company ABC - Jun 2023 to Sep 2023</p>
+						<p>Worked on creating responsive and user-friendly interfaces using HTML, CSS, and JavaScript.</p>
+					</div>
+				</div>
+
+				<div class="timeline-block">
+					<div class="timeline-icon">
+						<i class="fas fa-briefcase"></i>
+					</div>
+					<div class="timeline-content">
+						<h4>Web Developer</h4>
+						<p>Freelance - Oct 2023 to Present</p>
+						<p>Developed custom websites and web applications for clients using modern frameworks and tools.</p>
+					</div>
+				</div>
+
+				<div class="timeline-block">
+					<div class="timeline-icon">
+						<i class="fas fa-graduation-cap"></i>
+					</div>
+					<div class="timeline-content">
+						<h4>Software Engineering Student</h4>
+						<p>XYZ University - Sep 2022 to Present</p>
+						<p>Pursuing a degree in Software Engineering with a focus on web development and computer science fundamentals.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<style>
+	/* Timeline Style */
+	.timeline {
+		position: relative;
+		margin: 50px 0;
+	}
+
+	.timeline:before {
+		content: '';
+		position: absolute;
+		left: 50%;
+		top: 0;
+		bottom: 0;
+		width: 4px;
+		background: #ccc;
+		z-index: 1;
+	}
+
+	.timeline-block {
+		position: relative;
+		width: 45%;
+		padding: 20px;
+		margin-bottom: 50px;
+		z-index: 2;
+		transition: transform 0.3s ease-in-out;
+	}
+
+	.timeline-block:hover {
+		transform: scale(1.05);
+	}
+
+	.timeline-block:nth-child(odd) {
+		left: 0;
+		text-align: right;
+	}
+
+	.timeline-block:nth-child(even) {
+		left: 50%;
+	}
+
+	.timeline-icon {
+		position: absolute;
+		top: 0;
+		width: 40px;
+		height: 40px;
+		border-radius: 50%;
+		background: #007bff;
+		color: #fff;
+		text-align: center;
+		line-height: 40px;
+		z-index: 3;
+	}
+
+	.timeline-content {
+		background: #f8f9fa;
+		padding: 20px;
+		border-radius: 8px;
+		position: relative;
+	}
+
+	.timeline-content h4 {
+		margin-top: 0;
+		color: #007bff;
+	}
+
+	.timeline-content p {
+		margin-bottom: 0;
+	}
+	</style>
+
 	<!-- Contact Section -->
 	<section id="contact" class="py-5 bg-light">
 		<div class="container">
@@ -248,5 +361,6 @@
 
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

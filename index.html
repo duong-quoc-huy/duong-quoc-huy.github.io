@@ -368,12 +368,21 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
 	<script>
-		AOS.init();
+        AOS.init();
 
-		document.addEventListener("DOMContentLoaded", function() {
-			const typedText = document.querySelector('.typedText');
-			typedText.textContent = "I Am Able to Create Responsive, High-Quality Websites and Applications";
-		});
-	</script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const options = {
+                strings: ["I Am Able to Create Responsive, High-Quality Websites and Applications"],
+                typeSpeed: 50,
+                backSpeed: 25,
+                backDelay: 1000,
+                startDelay: 500,
+                loop: true,
+                showCursor: true
+            };
+
+            const typed = new Typed('.typedText', options);
+        });
+    </script>
 </body>
 </html>

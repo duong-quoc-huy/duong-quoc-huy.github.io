@@ -674,3 +674,74 @@ footer {
 .parallax-element {
 	transform: translateZ(-1px) scale(1.5);
 }
+
+/* Navigation Menu */
+.nav-menu {
+	display: flex;
+	align-items: center;
+}
+
+.nav-menu a {
+	color: var(--text-dark);
+	font-size: 1rem;
+	padding: 10px 15px;
+	text-decoration: none;
+}
+
+.nav-menu a:hover {
+	color: var(--primary-color);
+}
+
+/* Menu Button (Hamburger) */
+.menu-btn {
+	display: none; 
+	cursor: pointer;
+	font-size: 1.5rem;
+	color: var(--text-dark);
+	padding: 10px;
+	z-index: 1001;
+}
+
+/* Responsive Menu for Mobile */
+@media (max-width: 768px) {
+	.navbar {
+		position: relative;
+		padding: 10px 20px;
+	}
+
+	.nav-menu {
+		display: none; 
+		flex-direction: column;
+		width: 100%;
+		position: absolute;
+		top: 70px; 
+		left: 0;
+		background: var(--white);
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+		z-index: 1000;
+	}
+
+	.nav-menu.responsive {
+		display: flex; 
+	}
+
+	.nav-menu a {
+		padding: 15px;
+		width: 100%;
+		text-align: center;
+		border-bottom: 1px solid #e2e8f0;
+	}
+
+	.nav-menu a:last-child {
+		border-bottom: none;
+	}
+
+	.menu-btn {
+		display: block; 
+	}
+}
+
+html, body {
+    width: 100%;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}

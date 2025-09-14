@@ -20,12 +20,27 @@ document.addEventListener('DOMContentLoaded', function() {
 		}, 1000);
 	}
 
-	// Typing Effect
-	const texts = [
-		"I Am Able to Create Responsive, High-Quality Websites and Applications",
-		"Full-Stack Developer with Modern Technologies",
-		"Passionate About Clean Code and User Experience"
-	];
+	// Check if we're on Vietnamese page and set appropriate texts
+	const isVietnamese = document.documentElement.lang === 'vi' || 
+						document.title.includes('Trang Portfolio') ||
+						window.location.pathname.includes('index_vn');
+
+	// Typing Effect with language-specific texts
+	let texts;
+	if (isVietnamese) {
+		texts = [
+			"Tôi có thể tạo ra các trang web và ứng dụng chất lượng cao, đáp ứng tốt trên mọi thiết bị",
+			"Lập trình viên Full-Stack với công nghệ hiện đại",
+			"Đam mê viết mã sạch và trải nghiệm người dùng"
+		];
+	} else {
+		texts = [
+			"I Am Able to Create Responsive, High-Quality Websites and Applications",
+			"Full-Stack Developer with Modern Technologies",
+			"Passionate About Clean Code and User Experience"
+		];
+	}
+
 	let textIndex = 0;
 	let charIndex = 0;
 	let isDeleting = false;
@@ -99,8 +114,8 @@ document.addEventListener('DOMContentLoaded', function() {
 	const form = document.getElementById('contactForm');
 	if (form) {
 		const inputs = form.querySelectorAll('.form-control-modern');
-		const emailInput = form.querySelector('input[name="email"]'); // Adjust selector if needed
-		const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Basic email regex
+		const emailInput = form.querySelector('input[name="email"]');
+		const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 		form.addEventListener('submit', async function(e) {
 			e.preventDefault();
@@ -115,33 +130,40 @@ document.addEventListener('DOMContentLoaded', function() {
 				}
 			});
 
-			// Specific email validation
 			if (emailInput && !emailRegex.test(emailInput.value.trim())) {
 				emailInput.style.borderColor = '#e53e3e';
 				isValid = false;
+				const errorMessage = isVietnamese ? 
+					'Vui lòng nhập địa chỉ email hợp lệ.' : 
+					'Please enter a valid email address.';
+				
 				if (typeof Swal !== 'undefined') {
 					Swal.fire({
 						icon: 'error',
-						title: 'Invalid Email',
-						text: 'Please enter a valid email address.',
+						title: isVietnamese ? 'Email không hợp lệ' : 'Invalid Email',
+						text: errorMessage,
 						confirmButtonColor: '#3085d6',
 					});
 				} else {
-					alert('Please enter a valid email address.');
+					alert(errorMessage);
 				}
 				return;
 			}
 
 			if (!isValid) {
+				const errorMessage = isVietnamese ? 
+					'Vui lòng điền vào tất cả các trường.' : 
+					'Please fill in all fields.';
+				
 				if (typeof Swal !== 'undefined') {
 					Swal.fire({
 						icon: 'error',
 						title: 'Oops...',
-						text: 'Please fill in all fields.',
+						text: errorMessage,
 						confirmButtonColor: '#3085d6',
 					});
 				} else {
-					alert('Please fill in all fields.');
+					alert(errorMessage);
 				}
 				return;
 			}
@@ -155,40 +177,51 @@ document.addEventListener('DOMContentLoaded', function() {
 
 				if (response.ok) {
 					form.reset();
+					const successMessage = isVietnamese ? 
+						'Cảm ơn bạn! Tin nhắn của bạn đã được gửi thành công.' : 
+						'Thank you! Your message has been sent successfully.';
+					
 					if (typeof Swal !== 'undefined') {
 						Swal.fire({
 							icon: 'success',
-							title: 'Success!',
-							text: 'Thank you! Your message has been sent successfully.',
+							title: isVietnamese ? 'Thành công!' : 'Success!',
+							text: successMessage,
 							confirmButtonColor: '#3085d6',
 						});
 					} else {
-						alert('Thank you! Your message has been sent successfully.');
+						alert(successMessage);
 					}
 				} else {
 					const data = await response.json();
-					console.log('Server response:', data); // Debug the response
+					const errorMessage = isVietnamese ? 
+						'Gửi thất bại.' : 
+						'Submission failed.';
+					
 					if (typeof Swal !== 'undefined') {
 						Swal.fire({
 							icon: 'error',
-							title: 'Submission Failed',
-							text: data.errors?.map(x => x.message).join('\n') || data.error || data.message || 'Submission failed.',
+							title: isVietnamese ? 'Gửi thất bại' : 'Submission Failed',
+							text: data.errors?.map(x => x.message).join('\n') || data.error || data.message || errorMessage,
 							confirmButtonColor: '#3085d6',
 						});
 					} else {
-						alert(data.errors?.map(x => x.message).join('\n') || data.error || data.message || 'Submission failed.');
+						alert(data.errors?.map(x => x.message).join('\n') || data.error || data.message || errorMessage);
 					}
 				}
 			} catch (err) {
+				const networkError = isVietnamese ? 
+					'Lỗi mạng. Vui lòng thử lại sau.' : 
+					'Network error. Please try again later.';
+				
 				if (typeof Swal !== 'undefined') {
 					Swal.fire({
 						icon: 'error',
-						title: 'Network Error',
-						text: 'Network error. Please try again later.',
+						title: isVietnamese ? 'Lỗi mạng' : 'Network Error',
+						text: networkError,
 						confirmButtonColor: '#3085d6',
 					});
 				} else {
-					alert('Network error. Please try again later.');
+					alert(networkError);
 				}
 			}
 		});

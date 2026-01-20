@@ -11,8 +11,8 @@
 	--background-light: #f7fafc;
 	--background-dark: #1a202c;
 	--white: #ffffff;
-	--gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-	--gradient-accent: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+	--gradient-primary: linear-gradient(135deg, #2563EB, #4F46E5);
+	--gradient-accent: linear-gradient(135deg, #1D4ED8, #4338CA);
 	--gradient-bg: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
 	--shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.1);
 	--shadow-hover: 0 20px 60px rgba(0, 0, 0, 0.2);

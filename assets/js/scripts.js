@@ -35,9 +35,9 @@ document.addEventListener('DOMContentLoaded', function() {
 		];
 	} else {
 		texts = [
-			"I Am Able to Create Responsive, High-Quality Websites and Applications",
-			"Full-Stack Developer with Modern Technologies",
-			"Passionate About Clean Code and User Experience"
+			"Software Engineering Student Specializing in Backend & IoT",
+			"Building End-to-End Solutions: Hardware to Cloud",
+			"Passionate About IoT Systems and Backend Development"
 		];
 	}
 
